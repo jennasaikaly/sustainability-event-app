@@ -1,24 +1,25 @@
-import './App.css';
-import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
-import Footer from './components/Footer';
-import Nav from './components/Nav';
-import Search from './components/Search';
 
-const httpLink = createHttpLink({
-  uri: 'http://localhost:3001/graphql',
-});
+// import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
+// import Footer from './components/Footer';
+// import Nav from './components/Nav';
+// import Search from './components/Search';
 
-const client = new ApolloClient({
-  link: httpLink,
-  cache: new InMemoryCache(),
-});
+// const httpLink = createHttpLink({
+//   uri: 'http://localhost:3001/graphql',
+// });
+
+// const client = new ApolloClient({
+//   link: httpLink,
+//   cache: new InMemoryCache(),
+// });
 
 function App() {
   return (
-    <ApolloProvider client={client}>
+    // <ApolloProvider client={client}>
     <div>
+      Hello!
     </div>
-    </ApolloProvider>
+    // </ApolloProvider>
   );
 }
 
