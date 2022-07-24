@@ -42,12 +42,12 @@ const EventList = () => {
 //         events.map(event => (
 //           <div key={event._id} className="card mb-3">
 //             <p className="card-header">
-//               {event.title}
-//               {event.date} at {event.time}
+//               {event.eventTitle}
+//               {event.date} at {event.eventTiming}
 //               Organized by {event.username}
 //             </p>
 //             <div className="card-body">
-//               <img alt="">{event.img}</img>
+//               <img alt="">{event.image}</img>
 //               <p className="mb-0">
 //                 {event.keywords}
 //                 Comments: {event.commentCount}
