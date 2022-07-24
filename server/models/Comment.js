@@ -8,14 +8,15 @@ const commentSchema  = new Schema({
         minlength: 1,
         maxlength: 280,
     },
-    commentAuthor: {
+    username: {
         type: String,
         required: true,
-        trim: true,
     },
     createdAt: {
         type: Date,
         default: Date.now,
         get: (timestamp) => dateFormat(timestamp),
       },
-})
+}); 
+
+module.exports = commentSchema;

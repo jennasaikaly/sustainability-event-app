@@ -1,7 +1,6 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
-// import schema from Book.js
 const eventSchema = require('./Event');
 
 const userSchema = new Schema(
@@ -20,8 +19,14 @@ const userSchema = new Schema(
     password: {
       type: String,
       required: true,
+      minlength: 8,
     },
-    // set savedBooks to be an array of data that adheres to the bookSchema
+    createdEvents: [
+        {
+          type: Schema.Types.ObjectId,
+          ref: 'Event'
+        }
+    ],
     savedEvents: [eventSchema],
   },
   // set this to use virtual below
