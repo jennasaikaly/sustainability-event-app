@@ -1,4 +1,4 @@
-import React from "react";
+import EventList from '../components/EventList';
 import { useQuery } from '@apollo/client';
 import { QUERY_EVENTS } from '../utils/queries';
 
@@ -7,11 +7,21 @@ const Home = () => {
     const { loading, data } = useQuery(QUERY_EVENTS);
     const events = data?.events || [];
     console.log(events);
+
     return (
-      <main>
-        <div className='flex-row justify-space-between'>
-          <div className='col-12 mb-3'>{/* PRINT EVENT LIST */}</div>
-        </div>
-      </main>
+        <main>
+            <div className="eventlist-container">
+                <div className="col-12 mb-3">
+                     {loading ? (
+            <div>Loading...</div>
+        ) : (
+            <EventList events={events} title="Some Feed for Event(s)..." />
+        )} 
+                    <EventList />
+                    </div>
+            </div>
+        </main>
     );
-  };
+};
+
+export default Home;
