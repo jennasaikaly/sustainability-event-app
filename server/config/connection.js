@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 
 
-// TODO: change to correct db name
+// db name: sustainability-eventsdb
 mongoose.connect(
-    process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/programming-thoughts',
+    process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/sustainability-eventsdb',
     {
       useNewUrlParser: true,
       useUnifiedTopology: true, 
