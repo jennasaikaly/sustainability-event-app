@@ -12,10 +12,12 @@ const typeDefs = gql`
         _id: ID
         eventTitle: String
         organizers: String
+        username: String
         description: String
         keywords: String
         location: String
         eventTiming: String
+        eventDate: String
         eventFees: String
         contactInfo: String
         additionalInfo: String
@@ -39,6 +41,18 @@ const typeDefs = gql`
 
     type Query {
         events: [Event]
+    }
+
+    type Query {
+        events: [Event]!
+        event(eventId: ID!): Event
+    }
+    
+    type Mutation {
+        addEvent(args: String!): Event
+        addComment(eventId: ID!, commentText: String!): Event
+        removeEvent(eventId: ID!): Event
+        removeComment(eventId: ID!, commentId: ID!): Event
     }
 `;
 

@@ -15,6 +15,11 @@ const eventSchema = new Schema({
         },
     ],
 
+    username: { 
+        type: String,
+        required: true,
+    },
+
     description: {
         type: String,
         required: true,
@@ -42,6 +47,11 @@ const eventSchema = new Schema({
         required: true,
     },
 
+    eventDate: {
+        type: String, 
+        required: true,
+    },
+
     eventFees: {
         type: String, 
 
@@ -51,7 +61,7 @@ const eventSchema = new Schema({
         type: String,
     },
 
-    additiionalInfo: {
+    addititionalInfo: {
         type: String, 
     }, 
 

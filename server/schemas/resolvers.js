@@ -51,11 +51,11 @@ const resolvers = {
         // Return an `Auth` object that consists of the signed token and user's information
         return { token, user };
       },
-      addEvent: async (parent, { thoughtText, thoughtAuthor }) => {
-        const event = await Event.create({ thoughtText, thoughtAuthor });
+      addEvent: async (parent, args) => {
+        const event = await Event.create(args);
   
         await User.findOneAndUpdate(
-          { username: organizers },
+          { username: username },
           { $addToSet: { events: Event._id } }
         );
   
