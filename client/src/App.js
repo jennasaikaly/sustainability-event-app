@@ -1,11 +1,19 @@
-import './App.css';
+import React from 'react';
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
-import Footer from './components/Footer';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+import Home from './pages/Home';
 import Nav from './components/Nav';
-import Search from './components/Search';
+import Footer from './components/Footer';
+// import Search from './components/Search';
+import Login from './pages/Login';
+import NoMatch from './pages/NoMatch';
+import SingleEvent from './pages/SingleEvent';
+import Profile from './pages/Profile';
+import Signup from './pages/Signup';
 
 const httpLink = createHttpLink({
-  uri: 'http://localhost:3001/graphql',
+  uri: '/graphql',
 });
 
 const client = new ApolloClient({
@@ -16,8 +24,40 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-    <div>
-    </div>
+      <Router>
+        <div className="app-container">
+          <Nav />
+          <div className="home-container">
+            <Routes>
+              <Route
+                path="/"
+                element={<Home />}
+              />
+              <Route
+                path="/login"
+                element={<Login />}
+              />
+              <Route
+                path="/signup"
+                element={<Signup />}
+              />
+              <Route path="/profile">
+                <Route path=":username" element={<Profile />} />
+                <Route path="" element={<Profile />} />
+              </Route>
+              <Route
+                path="/event/:id"
+                element={<SingleEvent />}
+              />
+              <Route
+                path="*"
+                element={<NoMatch />}
+              />
+            </Routes>
+          </div>
+          <Footer />
+        </div>
+      </Router>
     </ApolloProvider>
   );
 }
