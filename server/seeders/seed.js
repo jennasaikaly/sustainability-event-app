@@ -25,11 +25,11 @@ db.once('open', async () => {
   let createdEvents = [];
   for (let i = 0; i < 100; i += 1) {
     const eventText = faker.lorem.words(Math.round(Math.random() * 20) + 1);
-
+    const eventTitle = faker.lorem.words(Math.round(Math.random() * 20) + 1);
     const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
     const { username, _id: userId } = createdUsers.ops[randomUserIndex];
 
-    const createdEvent = await Event.create({ eventText, username });
+    const createdEvent = await Event.create({ eventText, eventTitle, username });
 
     const updatedUser = await User.updateOne(
       { _id: userId },
