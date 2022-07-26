@@ -10,8 +10,8 @@ const eventSchema = new Schema({
     
     organizers: [
         {
-          type: String,
-          required: true,
+        type: String,
+        required: true,
         },
     ],
 
@@ -29,6 +29,7 @@ const eventSchema = new Schema({
     
     keywords: [
         {
+            type: String,
             required: true,
         }
     ],

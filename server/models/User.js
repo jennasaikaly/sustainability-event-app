@@ -26,8 +26,8 @@ const userSchema = new Schema(
           type: Schema.Types.ObjectId,
           ref: 'Event'
         }
-    ],
-    savedEvents: [eventSchema],
+    ]
+  //   savedEvents: [eventSchema],
   },
   // set this to use virtual below
   {
