@@ -12,7 +12,7 @@ export const QUERY_EVENTS = gql`
     location
     image
     eventDate
-    eventTiming
+    eventTime
     eventFees
     contactInfo
     additionalInfo    
@@ -40,7 +40,7 @@ export const QUERY_EVENT = gql`
     keywords
     location
     image
-    eventTiming
+    eventTime
     eventDate
     eventFees
     contactInfo

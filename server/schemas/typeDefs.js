@@ -16,7 +16,7 @@ const typeDefs = gql`
         description: String
         keywords: String
         location: String
-        eventTiming: String
+        eventTime: String
         eventDate: String
         eventFees: String
         contactInfo: String

@@ -29,7 +29,7 @@ db.once('open', async () => {
     const description = faker.lorem.words(Math.round(Math.random() * 20) + 1);
     const keywords = faker.lorem.words(Math.round(Math.random() * 20) + 1);
     const location = faker.lorem.words(Math.round(Math.random() * 20) + 1);
-    const eventTiming = faker.lorem.words(Math.round(Math.random() * 20) + 1);
+    const eventTime = faker.lorem.words(Math.round(Math.random() * 20) + 1);
     const eventDate = faker.lorem.words(Math.round(Math.random() * 20) + 1);
     const eventFees = faker.lorem.words(Math.round(Math.random() * 20) + 1);
     const contactInfo = faker.lorem.words(Math.round(Math.random() * 20) + 1);
@@ -45,7 +45,7 @@ db.once('open', async () => {
         description,
         keywords,
         location,
-        eventTiming,
+        eventTime,
         eventDate,
         eventFees,
         contactInfo,
