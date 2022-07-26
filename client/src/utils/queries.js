@@ -6,9 +6,9 @@ export const QUERY_EVENTS = gql`
     _id
     username
     eventTitle
-    organizers
+    # organizers
     description
-    keywords
+    # keywords
     location
     image
     eventDate
