@@ -30,7 +30,7 @@ const typeDefs = gql`
     type Comment {
         _id: ID
         commentText: String
-        commentAuthor: String
+        username: String
         createdAt: String
     }
     
@@ -39,9 +39,7 @@ const typeDefs = gql`
         user: User
     }
 
-    # type Query {
-    #     events: [Event]
-    # }
+    
 
     type Query {
         me: User

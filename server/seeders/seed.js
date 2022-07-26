@@ -24,12 +24,35 @@ db.once('open', async () => {
   // create events
   let createdEvents = [];
   for (let i = 0; i < 100; i += 1) {
-    const eventText = faker.lorem.words(Math.round(Math.random() * 20) + 1);
     const eventTitle = faker.lorem.words(Math.round(Math.random() * 20) + 1);
+    const organizers = faker.lorem.words(Math.round(Math.random() * 20) + 1);
+    const description = faker.lorem.words(Math.round(Math.random() * 20) + 1);
+    const keywords = faker.lorem.words(Math.round(Math.random() * 20) + 1);
+    const location = faker.lorem.words(Math.round(Math.random() * 20) + 1);
+    const eventTiming = faker.lorem.words(Math.round(Math.random() * 20) + 1);
+    const eventDate = faker.lorem.words(Math.round(Math.random() * 20) + 1);
+    const eventFees = faker.lorem.words(Math.round(Math.random() * 20) + 1);
+    const contactInfo = faker.lorem.words(Math.round(Math.random() * 20) + 1);
+    const additionalInfo = faker.lorem.words(Math.round(Math.random() * 20) + 1);
+    const link = faker.lorem.words(Math.round(Math.random() * 20) + 1);
     const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
     const { username, _id: userId } = createdUsers.ops[randomUserIndex];
 
-    const createdEvent = await Event.create({ eventText, eventTitle, username });
+    const createdEvent = await Event.create({ 
+        eventTitle, 
+        organizers, 
+        username,
+        description,
+        keywords,
+        location,
+        eventTiming,
+        eventDate,
+        eventFees,
+        contactInfo,
+        additionalInfo,
+        link,
+
+    });
 
     const updatedUser = await User.updateOne(
       { _id: userId },
@@ -41,7 +64,7 @@ db.once('open', async () => {
 
   // create comments
   for (let i = 0; i < 100; i += 1) {
-    const commentBody = faker.lorem.words(Math.round(Math.random() * 20) + 1);
+    const commentText = faker.lorem.words(Math.round(Math.random() * 20) + 1);
 
     const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
     const { username } = createdUsers.ops[randomUserIndex];
@@ -51,7 +74,7 @@ db.once('open', async () => {
 
     await Event.updateOne(
       { _id: eventId },
-      { $push: { comments: { commentBody, username } } },
+      { $push: { comments: { commentText, username } } },
       { runValidators: true }
     );
   }
