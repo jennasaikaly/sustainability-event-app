@@ -62,8 +62,36 @@ const resolvers = {
         // Return an `Auth` object that consists of the signed token and user's information
         return { token, user };
       },
-      addEvent: async (parent, args) => {
-        const event = await Event.create(args);
+      addEvent: async (parent, {
+          eventTitle, 
+          organizers, 
+          username, 
+          description, 
+          keywords,
+          location, 
+          eventTime, 
+          eventDate, 
+          eventFees, 
+          contactInfo, 
+          additionalInfo, 
+          link, 
+          image
+        }) => {
+        const event = await Event.create({
+          eventTitle, 
+          organizers, 
+          username, 
+          description, 
+          keywords,
+          location, 
+          eventTime, 
+          eventDate, 
+          eventFees, 
+          contactInfo, 
+          additionalInfo, 
+          link, 
+          image
+        });
   
         await User.findOneAndUpdate(
           { username: username },
@@ -72,11 +100,11 @@ const resolvers = {
   
         return event;
       },
-      addComment: async (parent, { eventId, commentText, commentAuthor }) => {
-        return Thought.findOneAndUpdate(
+      addComment: async (parent, { eventId, commentText, username }) => {
+        return Event.findOneAndUpdate(
           { _id: eventId },
           {
-            $addToSet: { comments: { commentText, commentAuthor } }
+            $addToSet: { comments: { commentText, username} }
           },
           {
             new: true,
