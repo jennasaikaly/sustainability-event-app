@@ -8,12 +8,11 @@ const eventSchema = new Schema({
         required: true,
     },
     
-    organizers: [
+    organizers: 
         {
         type: String,
         required: true,
-        },
-    ],
+    },
 
     username: { 
         type: String,
@@ -27,12 +26,11 @@ const eventSchema = new Schema({
         maxlength: 400, 
     },
     
-    keywords: [
+    keywords: 
         {
             type: String,
             required: true,
-        }
-    ],
+        },
 
     location: {
         type: String, 
