@@ -8,7 +8,7 @@ const commentSchema  = new Schema({
         minlength: 1,
         maxlength: 280,
     },
-    commentAuthor: {
+    username: {
         type: String,
         required: true,
     },

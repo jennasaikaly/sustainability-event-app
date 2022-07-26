@@ -16,7 +16,7 @@ const typeDefs = gql`
         description: String
         keywords: String
         location: String
-        eventTiming: String
+        eventTime: String
         eventDate: String
         eventFees: String
         contactInfo: String
@@ -30,7 +30,7 @@ const typeDefs = gql`
     type Comment {
         _id: ID
         commentText: String
-        commentAuthor: String
+        username: String
         createdAt: String
     }
     
@@ -39,16 +39,19 @@ const typeDefs = gql`
         user: User
     }
 
-    type Query {
-        events: [Event]
-    }
+    
 
     type Query {
+        me: User
+        users: [User]
+        user(username: String!): User
         events: [Event]!
         event(eventId: ID!): Event
     }
     
     type Mutation {
+        login(email: String!, password: String!): Auth
+        addUser(username: String!, email: String!, password: String!): Auth
         addEvent(args: String!): Event
         addComment(eventId: ID!, commentText: String!): Event
         removeEvent(eventId: ID!): Event
