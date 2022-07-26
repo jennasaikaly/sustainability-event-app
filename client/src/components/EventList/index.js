@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const EventList = (event, title) => {
-  // if (!event.length) {
+const EventList = (events, title) => {
+  // if (!events.length) {
   //   return <h3>No Events Yet</h3>;
   // }
   return (
@@ -34,7 +34,7 @@ const EventList = (event, title) => {
     </div>
   );
 
-}
+// }
 // const EventList = ({ events, title }) => {
 //   if (!events.length) {
 //     return <h3>There are no Events yet</h3>;
@@ -54,14 +54,14 @@ const EventList = (event, title) => {
 //             >{event.eventTitle} </Link>{' '}
 //             {event.date} at {event.eventTiming}
 //             Organized by 
-                  // <Link
-                  //   to={`/profile/${event.username}`}
-                  //   style={{ fontWeight: 700 }}
-                  //   className="text-light"
-                  // >
-                  //   { event.username }
-                  // </Link>{ ' ' }
-//
+//                   <Link
+//                     to={`/profile/${event.username}`}
+//                     style={{ fontWeight: 700 }}
+//                     className="text-light"
+//                   >
+//                     { event.username }
+//                   </Link>{ ' ' }
+
 //           </p>
 //           <div className="card-body">
 //             <img alt="">{event.image}</img>
@@ -75,6 +75,6 @@ const EventList = (event, title) => {
 //       ))}
 //   </div>
 // );
-// };
+};
 
 export default EventList;
