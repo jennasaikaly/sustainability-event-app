@@ -24,6 +24,7 @@ const handleFormSubmit = async event => {
   // use try/catch instead of promises to handle errors
   try {
     const { data } = await addUser({
+      
       variables: { ...formState }
     });
   

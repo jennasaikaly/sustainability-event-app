@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/jennasaikaly/sustainability-event-app#readme",
   "devDependencies": {
-    "concurrently": "^5.1.0"
+    "concurrently": "^5.3.0"
   },
   "dependencies": {
     "@apollo/react-hooks": "^4.0.0"
