@@ -1,10 +1,10 @@
 :root {
-  --primary: #497573;
-  --secondary: #99f7f2;
-  --tertiary: #b2c2c1;
-  --quatrinary: #cadbda;
+  --primary: #064635;
+  --secondary: #519259;
+  --tertiary: #F0BB62;
+  --quatrinary: #F4EEA9;
   --light: #e1f5f4;
-  --dark: #6c7575;
+  --dark: #2d6b3d;
   --error: rgb(228, 46, 1);
 }
 
@@ -61,7 +61,7 @@ body {
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Inconsolata', monospace;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
   font-weight: 400;
   line-height: 1.5;
   font-size: 20px;
