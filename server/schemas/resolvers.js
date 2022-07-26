@@ -22,9 +22,8 @@ const resolvers = {
       user: async (parent, { username }) => {
         return User.findOne({ username }).populate('events');
       },
-      events: async (parent, { username }) => {
-        const params = username ? { username } : {};
-        return Event.find(params).sort({ createdAt: -1 });
+      events: async () => {
+        return Event.find().sort({ createdAt: -1 });
       },
       event: async (parent, { eventId }) => {
         return Event.findOne({ _id: eventId });
