@@ -23,3 +23,77 @@ export const ADD_USER = gql`
     }
   }
 `;
+
+export const SAVE_EVENT = gql `
+  mutation saveEvent($input : savedEvent!) {
+    saveEvent (input: $input) {
+      _id
+      username
+      email
+      eventCount
+      savedEvent {
+        # _id
+        eventId
+        username
+        eventTitle
+        organizers
+        description
+        keywords
+        location
+        image
+        eventTime
+        eventDate
+        eventFees
+        contactInfo
+        additionalInfo    
+        link
+        createdAt
+        commentCount
+        comments {
+            _id
+            createdAt
+            username
+            commentText
+          }
+        }
+      }
+    }
+  }
+`;
+
+export const REMOVE_EVENT = gql `
+  mutation removeEvent ($eventId: String!) {
+    removeEvent(eventId: $eventId) {
+      _id
+      username
+      email
+      eventCount
+      savedEvent {
+        # _id
+        eventId
+        username
+        eventTitle
+        organizers
+        description
+        keywords
+        location
+        image
+        eventTime
+        eventDate
+        eventFees
+        contactInfo
+        additionalInfo    
+        link
+        createdAt
+        commentCount
+        comments {
+            _id
+            createdAt
+            username
+            commentText
+          }
+        }
+      }
+    }
+  }
+`
