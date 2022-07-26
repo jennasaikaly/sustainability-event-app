@@ -78,3 +78,40 @@ export const QUERY_USER = gql`
     }
   }
 `;
+
+export const QUERY_ME = gql`
+  {
+    me {
+      _id
+      username
+      email
+      commentCount
+      comments {
+        _id
+        commentText
+        createdAt
+        }
+      events {
+        _id
+        eventTitle
+        createdAt
+        CommentCount
+      }
+    }
+  }
+`;
+
+export const QUERY_ME_BASIC = gql`
+  {
+    me {
+      _id
+      username
+      email
+      commentCount
+      events {
+        _id
+        eventTitle
+      }
+    }
+  }
+`;
