@@ -43,7 +43,7 @@ const eventSchema = new Schema({
         type: String,
     },
 
-    eventTimiing: {
+    eventTime: {
         type: String, 
         required: true,
     },
@@ -62,7 +62,7 @@ const eventSchema = new Schema({
         type: String,
     },
 
-    addititionalInfo: {
+    additionalInfo: {
         type: String, 
     }, 
 

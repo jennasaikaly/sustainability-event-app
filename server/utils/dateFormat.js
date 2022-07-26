@@ -1,4 +1,4 @@
-// TO DO : edit for current project 
+
 
 const addDateSuffix = (date) => {
     let dateStr = date.toString();
