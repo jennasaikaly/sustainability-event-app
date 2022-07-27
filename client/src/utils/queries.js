@@ -81,8 +81,8 @@ export const GET_ME = gql`
 `;
 
 export const QUERY_EVENTS = gql`
-    query events($username: String) {
-    events(username: $username) {
+    query events {
+    events {
     _id
     username
     eventTitle
@@ -110,8 +110,8 @@ export const QUERY_EVENTS = gql`
 `;
 
 export const QUERY_EVENT = gql`
-  query event($id: ID!) {
-    event(_id: $id) {
+  query event($eventid: ID!) {
+    event(eventId: $eventId) {
     _id
     username
     eventTitle
@@ -133,7 +133,8 @@ export const QUERY_EVENT = gql`
         createdAt
         username
         commentText
-        }
+      }
+    
     }
   }
 `;
