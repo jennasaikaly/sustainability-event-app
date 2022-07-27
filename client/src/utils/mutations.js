@@ -26,7 +26,7 @@ export const ADD_USER = gql`
 
 export const ADD_EVENT = gql `
   mutation addEvent(
-    eventTitle: String!, 
+    $eventTitle: String!, 
     $organizers: String!, 
     $username: String!, 
     $description: String!, 
@@ -80,7 +80,7 @@ export const SAVE_EVENT = gql `
       email
       eventCount
       savedEvent {
-        # _id
+        _id
         eventId
         username
         eventTitle
@@ -98,11 +98,10 @@ export const SAVE_EVENT = gql `
         createdAt
         commentCount
         comments {
-            _id
-            createdAt
-            username
-            commentText
-          }
+          _id
+          createdAt
+          username
+          commentText
         }
       }
     }
@@ -167,7 +166,7 @@ export const REMOVE_SAVEDEVENT = gql `
             createdAt
             username
             commentText
-          }
+          
         }
       }
     }
