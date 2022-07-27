@@ -1,8 +1,8 @@
 import { gql } from '@apollo/client';
 
 export const QUERY_EVENTS = gql`
-    query events($username: String) {
-    events(username: $username) {
+    query events {
+    events {
     _id
     username
     eventTitle
@@ -18,7 +18,6 @@ export const QUERY_EVENTS = gql`
     additionalInfo    
     link
     createdAt
-    commentCount
     comments {
         _id
         createdAt
@@ -75,6 +74,50 @@ export const QUERY_USER = gql`
         createdAt
         CommentCount
       }
+    }
+  }
+`;
+export const QUERY_ME = gql`
+  {
+    me {
+      _id
+      username
+      email
+      events{
+        _id
+        eventId
+        username
+        eventTitle
+        organizers
+        description
+        keywords
+        location
+        image
+        eventTime
+        eventDate
+        eventFees
+        contactInfo
+        additionalInfo    
+        link
+        createdAt
+        commentCount
+        comments {
+          _id
+          createdAt
+          username
+          commentText
+        }
+      }
+    }
+  }
+`;
+
+export const QUERY_ME_BASIC = gql`
+  {
+    me {
+      _id
+      username
+      email
     }
   }
 `;
