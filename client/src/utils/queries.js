@@ -98,7 +98,6 @@ export const QUERY_EVENTS = gql`
     additionalInfo    
     link
     createdAt
-    commentCount
     comments {
         _id
         createdAt
@@ -159,4 +158,3 @@ export const QUERY_USER = gql`
     }
   }
 `;
-
