@@ -1,0 +1,97 @@
+[
+    {   
+        "id": 1,
+        "username": "midnight",
+        "eventTitle": "Pollinator Event",
+        "organizers": "Ottawa Pollinator Club",
+        "description": "Learn about local Pollinators",
+        "keywords": "local, pollinators, insects, flowers",
+        "location": "Ottawa",
+        "image": "/assets/img/pollinator.jpg",
+        "eventFees": "Free",
+        "contactInfo": "midnight@gmail.com",
+        "additionalInfo": "Don't come if you don't like bugs!",
+        "link": "www.ottawapollinators.com",
+        "comments": [{
+            "id": 1,
+            "username": "juniper",
+            "commentText": "this looks like a good event!"
+            }]
+        },
+        {   
+            "id": 2,
+            "username": "midnight",
+            "eventTitle": "Pollinator Event 2",
+            "organizers": "Ottawa Pollinator Club",
+            "description": "Learn about local Pollinators",
+            "keywords": "local, pollinators, insects, flowers",
+            "location": "Ottawa",
+            "image": "/assets/img/pollinator2.jpg",
+            "eventFees": "Free",
+            "contactInfo": "midnight@gmail.com",
+            "additionalInfo": "Don't come if you don't like bugs!",
+            "link": "www.ottawapollinators.com",
+            "comments": [{
+                "id": 1,
+                "username": "Jenna",
+                "commentText": "I'll be there!"
+                }]
+            },
+            {   
+                "id": 3,
+                "username": "Juniper",
+                "eventTitle": "Compost Event",
+                "organizers": "Ottawa Compost Club",
+                "description": "Learn how to compost",
+                "keywords": "compost, food waste, soil",
+                "location": "Ottawa",
+                "image": "/assets/img/compost.jpg",
+                "eventFees": "Free",
+                "contactInfo": "jenna@gmail.com",
+                "additionalInfo": "Bring some food scraps!",
+                "link": "www.ottawacompostclub.com",
+                "comments": [{
+                    "id": 1,
+                    "username": "juniper",
+                    "commentText": "this looks like a good event!"
+                    }]
+                },
+                {   
+                    "id": 4,
+                    "username": "ILoveLocal",
+                    "eventTitle": "Invasive Species Event",
+                    "organizers": "Ottawa Gardening Club",
+                    "description": "Learn about Invasive species in the garden",
+                    "keywords": "local, invasives, plants, species",
+                    "location": "Ottawa",
+                    "image": "/assets/img/invasive.jpg",
+                    "eventFees": "Free",
+                    "contactInfo": "lovelocalt@gmail.com",
+                    "additionalInfo": "Fun for kids too!",
+                    "link": "www.ottawagardeningclub.com",
+                    "comments": [{
+                        "id": 1,
+                        "username": "Jenna",
+                        "commentText": "I'll be there!"
+                        }]
+                    },
+                    {   
+                        "id": 5,
+                        "username": "IloveSoil",
+                        "eventTitle": "Soil Health Event",
+                        "organizers": "Ottawa Compost Club",
+                        "description": "Learn about healthy soil amendments",
+                        "keywords": "soil, organic, gardening, amendments",
+                        "location": "Ottawa",
+                        "image": "/assets/img/soilhealth.jpg",
+                        "eventFees": "Free",
+                        "contactInfo": "soilhealth@gmail.com",
+                        "additionalInfo": "Bring a shovel!",
+                        "link": "www.ottawasoilhealth.com",
+                        "comments": [{
+                            "id": 1,
+                            "username": "Jenna",
+                            "commentText": "I'll be there!"
+                            }]
+                        }
+]

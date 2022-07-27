@@ -1,11 +1,22 @@
-import React from 'react';
+import { React } from "react";
 
-const Search = () => {
-  return (
-    <footer>
-      <div>&copy;2022 by Jenna Saikaly & Sierra Davis</div>
-    </footer>
-  );
-};
+import TextField from "@mui/material/TextField";
+
+
+function Search (props) {
+  
+ return(
+  <div className="search">
+        <TextField
+          id="outlined-basic"
+          variant="outlined"
+          fullWidth
+          label="Search"
+        />
+      </div>
+ )
+ 
+
+}
 
 export default Search;

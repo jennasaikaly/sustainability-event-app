@@ -8,29 +8,32 @@ import CommentList from '../components/CommentList';
 const SingleEvent = props => {
   
   const { id: eventId } = useParams();
+console.log(eventId)
+
 
   const { loading, data } = useQuery(QUERY_EVENT, {
-    variables: { id: eventId }
-  });
+    variables: { eventId: eventId }
+     });
 
+  
   const event = data?.event || {};
-
+  
   if (loading) {
     return <div>Loading...</div>;
   }
   return (
     <div>
       <div className="card mb-3">
-        <p className="card-header">
+        <div className="card-header">
             <h2>{event.eventTitle}</h2>
           <span style={{ fontWeight: 700 }} className="text-light">
             {event.username}
             {event.organizers}
           </span>{' '}
           event on {event.eventDate} at {event.eventTime}
-        </p>
+        </div>
         <div className="card-body">
-          <p>
+          <p> 
           {event.description}
           {event.keywords}
           {event.location}

@@ -109,7 +109,7 @@ export const QUERY_EVENTS = gql`
 `;
 
 export const QUERY_EVENT = gql`
-  query event($eventid: ID!) {
+  query event($eventId: ID!) {
     event(eventId: $eventId) {
     _id
     username
@@ -126,7 +126,6 @@ export const QUERY_EVENT = gql`
     additionalInfo    
     link
     createdAt
-    commentCount
     comments {
         _id
         createdAt

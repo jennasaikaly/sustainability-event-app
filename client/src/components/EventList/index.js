@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+// import data from '../../data/initialdetails.json'
 
 // const EventList = (events, title) => {
 //   // if (!events.length) {
@@ -80,3 +81,5 @@ return (
 };
 
 export default EventList;
+
+
