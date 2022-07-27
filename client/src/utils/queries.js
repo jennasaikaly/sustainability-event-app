@@ -1,5 +1,50 @@
 import { gql } from '@apollo/client';
 
+export const QUERY_ME = gql`
+  {
+    me {
+      _id
+      username
+      email
+      events{
+        _id
+        eventId
+        username
+        eventTitle
+        organizers
+        description
+        keywords
+        location
+        image
+        eventTime
+        eventDate
+        eventFees
+        contactInfo
+        additionalInfo    
+        link
+        createdAt
+        commentCount
+        comments {
+          _id
+          createdAt
+          username
+          commentText
+        }
+      }
+    }
+  }
+`;
+
+export const QUERY_ME_BASIC = gql`
+  {
+    me {
+      _id
+      username
+      email
+    }
+  }
+`;
+
 export const GET_ME = gql`
   {
     me {
@@ -7,7 +52,7 @@ export const GET_ME = gql`
       username
       email
       savedEvent {
-        # _id
+        _id
         eventId
         username
         eventTitle
@@ -113,3 +158,4 @@ export const QUERY_USER = gql`
     }
   }
 `;
+
