@@ -68,7 +68,7 @@ return (
 
           </p>
           <div className="card-body">
-            <img alt="">{event.image}</img>
+          <img alt="" src={event.image} />
             <p className="mb-0">
               {event.keywords}
               Comments: {event.commentCount}
