@@ -174,7 +174,7 @@ export const REMOVE_SAVEDEVENT = gql `
 `
 
 export const ADD_COMMENT = gql `
-  mutation AddComment($eventId: ID!, $commentText: String!, $username: String!) {
+  mutation addComment($eventId: ID!, $commentText: String!, $username: String!) {
     addComment(eventId: $eventId, commentText: $commentText, username: $username) {
       _id
       eventTitle
@@ -202,7 +202,7 @@ export const ADD_COMMENT = gql `
 `;
 
 export const REMOVE_COMMENT = gql `
-  mutation RemoveComment($eventId: ID!, $commentId: ID!) {
+  mutation removeComment($eventId: ID!, $commentId: ID!) {
     removeComment(eventId: $eventId, commentId: $commentId) {
       comments {
         _id
