@@ -21,14 +21,14 @@ const SingleEvent = props => {
   return (
     <div>
       <div className="card mb-3">
-        <p className="card-header">
+        <div className="card-header">
             <h2>{event.eventTitle}</h2>
           <span style={{ fontWeight: 700 }} className="text-light">
             {event.username}
             {event.organizers}
           </span>{' '}
           event on {event.eventDate} at {event.eventTime}
-        </p>
+        </div>
         <div className="card-body">
           <p>
           {event.description}
