@@ -83,35 +83,11 @@ const resolvers = {
         // Return an `Auth` object that consists of the signed token and user's information
         return { token, user };
       },
-      addEvent: async (parent, {
-          eventTitle, 
-          organizers, 
-          username, 
-          description, 
-          keywords,
-          location, 
-          eventTime, 
-          eventDate, 
-          eventFees, 
-          contactInfo, 
-          additionalInfo, 
-          link, 
-          image
-        }, context) => {
+      addEvent: async (parent, args
+        , context) => {
         if (context.user){
         const event = await Event.create({
-          eventTitle, 
-          organizers, 
-          description, 
-          keywords,
-          location, 
-          eventTime, 
-          eventDate, 
-          eventFees, 
-          contactInfo, 
-          additionalInfo, 
-          link, 
-          image, username: context.user.username
+          ...args, username: context.user.username,
         });
 
         await User.findByIdAndUpdate(
@@ -136,11 +112,13 @@ const resolvers = {
             },
             {
               new: true,
-              runValidators: true 
+              runValidators: true
             }
           );
           return updatedEvent;
         }
+       
+        throw new AuthenticationError('You need to be logged in!');
       },
       removeEvent: async (parent, { eventId }) => {
         return Event.findOneAndDelete({ _id: eventId });
@@ -153,21 +131,7 @@ const resolvers = {
         );
       },
       //saved events 
-    //   saveEvent: async (parent, args, context) => {
-    //     if (context.user) {
-        
       
-    //      const updatedUser =  await User.findByIdAndUpdate(
-    //         { _id: context.user._id },
-    //         { $addToSet: { savedEvents: args.input } },
-    //         { new: true }
-    //       );
-      
-    //     return updatedUser;
-    //     }
-      
-    //     throw new AuthenticationError('You need to be logged in!');
-    // },
 
 
 
