@@ -11,10 +11,10 @@ function Nav() {
     <header>
       <h2>
         <Link to="/">
-          <span role="img" aria-label="plant"> 🌿</span> Sustainable Event App
+          <span role="img" aria-label="plant"> 🌿</span> Networking Sustainability
         </Link>
       </h2>
-      <nav className="text-center">
+      <nav className="nav-component">
         {Auth.loggedIn() ? (
           <>
             <Link to="/profile">My Events</Link>

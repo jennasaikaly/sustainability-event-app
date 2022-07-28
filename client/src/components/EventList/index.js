@@ -43,8 +43,10 @@ const EventList = ({ events, title }) => {
   }
 
 return (
-  <div>
-    <h3>{title}</h3>
+  <div className='eventlist-container'>
+    
+    <h3 className='eventlist-title'>{title}</h3>
+    <div className='eventlist-card-container'>
     {events &&
       events.map(event => (
         <div key={event._id} className="card mb-3">
@@ -75,6 +77,7 @@ return (
           </div>
         </div>
       ))}
+      </div>
   </div>
 );
 };

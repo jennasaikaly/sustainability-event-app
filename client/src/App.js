@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Nav from './components/Nav';
 import Footer from './components/Footer';
+import Hero from './components/Hero';
 // import Search from './components/Search';
 import Login from './pages/Login';
 import NoMatch from './pages/NoMatch';
@@ -37,6 +38,7 @@ function App() {
       <Router>
         <div className="app-container">
           <Nav />
+          {/* <Hero /> */}
           <div className="home-container">
             <Routes>
               <Route
