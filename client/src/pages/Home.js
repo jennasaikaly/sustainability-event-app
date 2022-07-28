@@ -19,14 +19,14 @@ const Home = () => {
 
     return (
         <main>
-            <div className="eventlist-container">
-            <div className={`col-12 mb-3 ${loggedIn && 'col-lg-8'}`}>
+            
+            <div className={`eventlist-col ${loggedIn && 'savedevent-col'}`}>
                      {loading ? (
             <div>Loading...</div>
         ) : (
-            <EventList events={events} title="Some Local Event(s)..." />
+            <EventList events={events} title="Local Events" />
         )} 
-        //the props need to be edited 
+        {/* the props need to be edited  */}
                     {/* {loggedIn && userData ? (
   <div className="col-12 col-lg-3 mb-3">
     <SavedEvents
@@ -35,7 +35,7 @@ const Home = () => {
   </div>
 ) : null} */}
                     </div>
-            </div>
+           
         </main>
     );
 };
