@@ -71,7 +71,7 @@ body {
   min-height: 100%;
 }
 html {
-  background-image: url("./assets/images/trees image.jpg");
+  background-image: url("./assets/img/trees image.jpg");
   background-size: cover;
   background-position: center;
   min-width: 100%; 
