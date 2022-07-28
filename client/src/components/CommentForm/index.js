@@ -41,7 +41,7 @@ const CommentForm = ({ eventId }) => {
   };
 
   return (
-    <div>
+    <div className = "commentform-container">
       <h4>Add your comments or questions about this event here: </h4>
       
       <form

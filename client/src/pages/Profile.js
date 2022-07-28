@@ -56,7 +56,7 @@ if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
         </div>
       </div>
 
-      <div className="mb-3">{!userParam && <EventForm />}</div>
+      <div>{!userParam && <EventForm />}</div>
     </div>
   );
 };

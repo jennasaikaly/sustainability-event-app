@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+// import pollinator from '../../assets/img/pollinator.jpg'
 
 // const EventList = (events, title) => {
 //   // if (!events.length) {
@@ -50,30 +51,42 @@ return (
     {events &&
       events.map(event => (
         <div key={event._id} className="card">
-          <p className="card-header">
-            <Link
+          <div className="card-header">
+            <p><Link
               to={`/event/${event._id}`}
               style={{ fontWeight: 700 }}
               className="text-light"
-            >{event.eventTitle} </Link>{' '}
-            {event.date} at {event.eventTiming}
-            Organized by 
+            >{event.eventTitle} </Link></p>
+            <p>{event.eventDate} at {event.eventTime} </p>
+            
+
+          </div>
+          <div className="card-body">
+          {/* <img alt="" src={pollinator} /> */}
+          <img alt="" src={require('../../assets/img/' + event.image)}/>
+            <p className="card-keywords">
+              {event.keywords} </p>
+              
+                  
+
+           
+          </div>
+          <div className='card-footer'>
+          <span className='organizedby'> Event by:
                   <Link
                     to={`/profile/${event.username}`}
                     style={{ fontWeight: 700 }}
                     className="text-light"
-                  >
+                  >   {'    '}   
                     { event.username }
-                  </Link>{ ' ' }
-
-          </p>
-          <div className="card-body">
-          <img alt="" src={event.image} />
-            <p className="mb-0">
-              {event.keywords}
-              Comments: {event.commentCount}
-              People Attending: {event.attendanceCount}
-            </p>
+                  </Link></span>
+          <Link to={`/event/${event._id}`}>
+                
+                <p className="mb-0">
+                <i className="fa-solid fa-comment"></i>  {' '}
+                  {event.commentCount ? 'comments' : 'Comment'} 
+                </p>
+              </Link>
           </div>
         </div>
       ))}

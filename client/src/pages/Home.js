@@ -2,6 +2,7 @@ import EventList from '../components/EventList';
 import { useQuery } from '@apollo/client';
 import { QUERY_EVENTS, QUERY_ME } from '../utils/queries';
 import Auth from '../utils/auth';
+
 // import savedEvents from '../components/savedEvents';
 
 const Home = () => {

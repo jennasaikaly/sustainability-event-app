@@ -71,7 +71,7 @@ body {
   min-height: 100%;
 }
 html {
-  background-image: url("./assets/images/trees image.jpg");
+  background-image: url("./assets/img/trees image.jpg");
   background-size: cover;
   background-position: center;
   min-width: 100%; 
@@ -110,10 +110,16 @@ main h3 {
  }
 
  .eventlist-container {
+  background-color: var(--darker);
+  color: var(--light);
+  width: 90%;
+  margin: auto;
+  /* padding: 40px; */
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
   flex-wrap: wrap;
+  flex-direction:row;
+  justify-content: center;
+  align-items: center;
  }
 
  .eventlist-title {
@@ -122,24 +128,34 @@ main h3 {
  }
 
  .eventlist-card-container {
-  display:flex;
+  display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-around;
  }
 .title {
   text-align:center;
 }
 .card {
   margin: 30px;
-  border: 3px solid var(--dark);
+  /* border: 3px solid var(--dark); */
   border-radius: var(--border-radius);
   background-color: var(--light);
   color: var(--dark);
-  max-width: 20%;
+  width: 250px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
-
+.card p{
+  margin: 0;
+}
+.card-keywords{
+  /* text-align:center; */
+  padding: 2px 5px 5px 10px;
+}
+.organizedby{
+  font-size: 13px;
+}
 .card-header {
   color: var(--secondary);
   margin: 0;
@@ -149,22 +165,35 @@ main h3 {
 }
 
 .card-body {
-  padding: 2.5%;
+  
   font-size: 1.4rem;
+  width:100%;
+  height:300px
+  
+  /* background-image: url("event.image"); */
+}
+
+.card-body img{
+  position: center;
+  width: 100%;
+  height: 200px;
+  
 }
 
 .card-footer{
-  margin: 0;
-  font-size: 1rem;
+  display:flex;
+  justify-content: space-between;
+  margin: 10px 5px 5px 5px;
+  font-size: 13px;
 }
 
 .single-event-container {
   margin: auto ;
-  border: 3px solid var(--dark);
-  border-radius: var(--border-radius);
+  margin-top: 10px;
+  margin-bottom: 10px;
   background-color: var(--light);
   color: var(--dark);
-  max-width: 80%;
+  max-width: 70%;
   display: flex;
   flex-direction: column;
   
@@ -182,6 +211,71 @@ main h3 {
   padding: 2.5%;
   font-size: 1.4rem;
 }
+
+.single-event-body img{
+  width: 300px;
+
+}
+
+.commentform-container {
+  background-color: var(--light);
+  width: 550px;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.5;
+  border-radius: 5px;
+  padding: 20px;
+}
+.eventform-container form {
+  background-color: var(--light);
+  width: 550px;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.5;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+/* * Style inputs, select elements and textareas */ */
+input[type=text], select, textarea{
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  resize: vertical;
+  margin-left: 5px;
+}
+
+/* Style the label to display next to the inputs */
+label {
+ padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+/* Style the submit button */
+input[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+
+
+
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
 footer {
   width: 100%;
   margin-top:auto;
