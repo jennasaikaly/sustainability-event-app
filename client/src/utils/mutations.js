@@ -176,6 +176,20 @@ export const REMOVE_SAVEDEVENT = gql `
 export const ADD_COMMENT = gql `
   mutation AddComment($eventId: ID!, $commentText: String!, $username: String!) {
     addComment(eventId: $eventId, commentText: $commentText, username: $username) {
+      _id
+      eventTitle
+      organizers
+      username
+      description
+      keywords
+      location
+      eventTime
+      eventDate
+      eventFees
+      contactInfo
+      additionalInfo
+      link
+      image
       comments {
         _id
         commentText
