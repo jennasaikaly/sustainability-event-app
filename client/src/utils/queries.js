@@ -23,7 +23,6 @@ export const QUERY_ME = gql`
         additionalInfo    
         link
         createdAt
-        commentCount
         comments {
           _id
           createdAt
@@ -68,7 +67,7 @@ export const GET_ME = gql`
         additionalInfo    
         link
         createdAt
-        commentCount
+       
         comments {
           _id
           createdAt
@@ -81,7 +80,7 @@ export const GET_ME = gql`
 `;
 
 export const QUERY_EVENTS = gql`
-    query events {
+    query events  {
     events {
     _id
     username
@@ -142,17 +141,29 @@ export const QUERY_USER = gql`
       _id
       username
       email
-      commentCount
-      comments {
-        _id
-        commentText
-        createdAt
-      }
+      
       events {
         _id
         eventTitle
+        organizers
+        username
+        description
+        keywords
+        location
+        eventTime
+        eventDate
+        eventFees
+        contactInfo
+        additionalInfo
+        link
+        image
         createdAt
-        CommentCount
+        comments {
+          _id
+          commentText
+          username
+          createdAt
+        }
       }
     }
   }

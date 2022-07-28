@@ -21,13 +21,13 @@ const userSchema = new Schema(
       required: true,
       minlength: 8,
     },
-    createdEvents: [
+    events: [
         {
           type: Schema.Types.ObjectId,
           ref: 'Event'
         }
     ]
-  //   savedEvents: [eventSchema],
+  //   events: [eventSchema],
   },
   // set this to use virtual below
   {

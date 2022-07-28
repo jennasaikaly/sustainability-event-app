@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_EVENT } from '../utils/queries';
 import CommentList from '../components/CommentList';
+import CommentForm from '../components/CommentForm';
 
 
 const SingleEvent = props => {
@@ -42,6 +43,8 @@ const SingleEvent = props => {
       </div>
 
       {event.commentCount > 0 && <CommentList comments={event.comments} />}
+
+      { <CommentForm eventId={event._id} />}
     </div>
   );
 };
