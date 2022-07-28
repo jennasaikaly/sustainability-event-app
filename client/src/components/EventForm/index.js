@@ -85,8 +85,8 @@ const EventForm = () => {
     };
 
     return (
-        <div>
-            <form className = "flex-box justify-center "  onSubmit={handleFormSubmit} >
+        <div className='eventform-container'>
+            <form onSubmit={handleFormSubmit} >
                 <label> Enter Your Event's Title: 
                 <input
                 type='text'
@@ -99,6 +99,7 @@ const EventForm = () => {
 
                 <label> Enter Your Username
                 <input
+                type='text'
                 name = 'username'
                 value = {formState.username || ''}
                 className='form-input col-12 col-md-3'
@@ -107,7 +108,8 @@ const EventForm = () => {
                 </label>
 
                 <label> Who is Organizing this Event:
-                <input 
+                <input
+                type='text' 
                 name = "organizers"
                 value = {formState.organizers || ''}
                 className='form-input col-12 col-md-3'
@@ -117,6 +119,7 @@ const EventForm = () => {
 
                 <label> Enter a Short Description of Your Event:
                 <textarea 
+                type='text'
                 name = 'description'
                 value = {formState.description || ''}
                 className='form-input col-12 col-md-3'
@@ -126,6 +129,7 @@ const EventForm = () => {
 
                 <label> Enter Some Keywords Describing Your Event:
                 <input 
+                type='text'
                 name='keywords'
                 value = {formState.keywords || ''}
                 className='form-input col-12 col-md-3'
@@ -134,7 +138,8 @@ const EventForm = () => {
                 </label>
 
                 <label> Enter the Event's Location:
-                <textarea 
+                <input
+                type='text'
                 name='location'
                 value = {formState.location || ''}
                 className='form-input col-12 col-md-3'
@@ -143,7 +148,8 @@ const EventForm = () => {
                 </label>
 
                 <label> Enter the Event's Timing:
-                <textarea 
+                <input
+                type='text'
                 name='eventTime'
                 value = {formState.eventTime || ''}
                 className='form-input col-12 col-md-3'
@@ -151,7 +157,8 @@ const EventForm = () => {
                 /></label>
 
                 <label> Enter the Event's Date: 
-                <textarea
+                <input
+                type='text'
                 name='eventDate'
                 value = {formState.eventDate || ''}
                 className='form-input col-12 col-md-3'

@@ -216,6 +216,66 @@ main h3 {
   width: 300px;
 
 }
+
+.commentform-container {
+  background-color: var(--light);
+  width: 550px;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.5;
+  border-radius: 5px;
+  padding: 20px;
+}
+.eventform-container form {
+  background-color: var(--light);
+  width: 550px;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.5;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+/* * Style inputs, select elements and textareas */ */
+input[type=text], select, textarea{
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  resize: vertical;
+  margin-left: 5px;
+}
+
+/* Style the label to display next to the inputs */
+label {
+ padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+/* Style the submit button */
+input[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+
+
+
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
 footer {
   width: 100%;
   margin-top:auto;
