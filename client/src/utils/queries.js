@@ -80,8 +80,8 @@ export const GET_ME = gql`
 `;
 
 export const QUERY_EVENTS = gql`
-    query events ($usename : String!) {
-    events (username : $usename) {
+    query events  {
+    events {
     _id
     username
     eventTitle
