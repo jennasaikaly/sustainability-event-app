@@ -1,5 +1,6 @@
 {
   "name": "sustainability-event-app",
+  "homepage": "http://jennasaikaly.github.io/sustainability-event-app",
   "version": "1.0.0",
   "description": "",
   "main": "server/server.js",
@@ -9,7 +10,9 @@
     "install": "cd server && npm i && cd ../client && npm i",
     "build": "cd client && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "seed": "cd server && npm run seed"
+    "seed": "cd server && npm run seed",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "repository": {
     "type": "git",
@@ -23,7 +26,8 @@
   },
   "homepage": "https://github.com/jennasaikaly/sustainability-event-app#readme",
   "devDependencies": {
-    "concurrently": "^5.1.0"
+    "concurrently": "^5.1.0",
+    "gh-pages": "^4.0.0"
   },
   "dependencies": {
     "@apollo/react-hooks": "^4.0.0"
