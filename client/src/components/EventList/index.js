@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+// import pollinator from '../../assets/img/pollinator.jpg'
 
 // const EventList = (events, title) => {
 //   // if (!events.length) {
@@ -69,6 +69,7 @@ return (
 
           </p>
           <div className="card-body">
+          {/* <img alt="" src={pollinator} /> */}
           <img alt="" src={event.image} />
             <p className="mb-0">
               {event.keywords}

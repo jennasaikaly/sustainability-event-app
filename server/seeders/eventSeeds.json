@@ -9,7 +9,7 @@
         "location": "Ottawa",
         "eventTime" : "2pm",
         "eventDate" : "Weekdays",
-        "image": "/assets/img/pollinator.jpg",
+        "image": "../../assets/img/pollinator.jpg",
         "eventFees": "Free",
         "contactInfo": "midnight@gmail.com",
         "additionalInfo": "Don't come if you don't like bugs!",
