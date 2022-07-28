@@ -10,7 +10,7 @@ const SingleEvent = props => {
   const { id: eventId } = useParams();
 
   const { loading, data } = useQuery(QUERY_EVENT, {
-    variables: { id: eventId }
+    variables: { eventId: eventId }
   });
 
   const event = data?.event || {};
@@ -20,28 +20,25 @@ const SingleEvent = props => {
   }
   return (
     <div>
-      <div className="card mb-3">
-        <p className="card-header">
+      <div className="single-event-container">
+        <div className="single-event-header">
             <h2>{event.eventTitle}</h2>
           <span style={{ fontWeight: 700 }} className="text-light">
             {event.username}
             {event.organizers}
           </span>{' '}
           event on {event.eventDate} at {event.eventTime}
-        </p>
-        <div className="card-body">
-          <p>
-          {event.description}
-          {event.keywords}
-          {event.location}
-          {event.image}
-          {event.eventFees}
-          {event.contactInfo}
-          {event.additionalInfo}
-          {event.link}
-          
-          </p>
         </div>
+        <div className="single-event-body">
+          <p>{event.description}</p>
+          <p>{event.keywords}</p>
+          <p>{event.location}</p>
+          <p>{event.image}</p>
+          <p>{event.eventFees}</p>
+          <p>{event.contactInfo}</p>
+          <p>{event.additionalInfo}</p>
+          <p>{event.link}</p>
+         </div>
       </div>
 
       {event.commentCount > 0 && <CommentList comments={event.comments} />}

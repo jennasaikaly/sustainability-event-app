@@ -49,7 +49,7 @@ return (
     <div className='eventlist-card-container'>
     {events &&
       events.map(event => (
-        <div key={event._id} className="card mb-3">
+        <div key={event._id} className="card">
           <p className="card-header">
             <Link
               to={`/event/${event._id}`}
