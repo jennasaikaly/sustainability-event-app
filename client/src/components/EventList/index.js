@@ -63,7 +63,7 @@ return (
           </div>
           <div className="card-body">
           {/* <img alt="" src={pollinator} /> */}
-          <img alt="" src={require('../../assets/img/' + event.image)}/>
+          {/* <img alt="" src={require('../../assets/img/' + event.image)}/> */}
             <p className="card-keywords">
               {event.keywords} </p>
               

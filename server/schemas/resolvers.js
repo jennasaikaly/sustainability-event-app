@@ -127,17 +127,20 @@ const resolvers = {
 
         throw new AuthenticationError('You need to be logged in!');
       },
-      addComment: async (parent, { eventId, commentText, username }) => {
-        return Event.findOneAndUpdate(
-          { _id: eventId },
-          {
-            $addToSet: { comments: { commentText, username} }
-          },
-          {
-            new: true,
-            runValidators: true
-          }
-        );
+      addComment: async (parent, { eventId, commentText}, context) => {
+        if (context.user) {
+          let updatedEvent = await Event.findOneAndUpdate(
+            { _id: eventId },
+            {
+              $push: { comments: { commentText, username: context.user.username} }
+            },
+            {
+              new: true,
+              runValidators: true 
+            }
+          );
+          return updatedEvent;
+        }
       },
       removeEvent: async (parent, { eventId }) => {
         return Event.findOneAndDelete({ _id: eventId });
@@ -150,21 +153,21 @@ const resolvers = {
         );
       },
       //saved events 
-      saveEvent: async (parent, args, context) => {
-        if (context.user) {
+    //   saveEvent: async (parent, args, context) => {
+    //     if (context.user) {
         
       
-         const updatedUser =  await User.findByIdAndUpdate(
-            { _id: context.user._id },
-            { $addToSet: { savedEvents: args.input } },
-            { new: true }
-          );
+    //      const updatedUser =  await User.findByIdAndUpdate(
+    //         { _id: context.user._id },
+    //         { $addToSet: { savedEvents: args.input } },
+    //         { new: true }
+    //       );
       
-        return updatedUser;
-        }
+    //     return updatedUser;
+    //     }
       
-        throw new AuthenticationError('You need to be logged in!');
-    },
+    //     throw new AuthenticationError('You need to be logged in!');
+    // },
 
 
 

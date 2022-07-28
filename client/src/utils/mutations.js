@@ -72,41 +72,41 @@ export const ADD_EVENT = gql `
     }
 `;
 
-export const SAVE_EVENT = gql `
-  mutation saveEvent($input : savedEvent!) {
-    saveEvent (input: $input) {
-      _id
-      username
-      email
-      eventCount
-      savedEvent {
-        _id
-        eventId
-        username
-        eventTitle
-        organizers
-        description
-        keywords
-        location
-        image
-        eventTime
-        eventDate
-        eventFees
-        contactInfo
-        additionalInfo    
-        link
-        createdAt
-        commentCount
-        comments {
-          _id
-          createdAt
-          username
-          commentText
-        }
-      }
-    }
-  }
-`;
+// export const SAVE_EVENT = gql `
+//   mutation saveEvent($input : savedEvent!) {
+//     saveEvent (input: $input) {
+//       _id
+//       username
+//       email
+//       eventCount
+//       savedEvent {
+//         _id
+//         eventId
+//         username
+//         eventTitle
+//         organizers
+//         description
+//         keywords
+//         location
+//         image
+//         eventTime
+//         eventDate
+//         eventFees
+//         contactInfo
+//         additionalInfo    
+//         link
+//         createdAt
+//         commentCount
+//         comments {
+//           _id
+//           createdAt
+//           username
+//           commentText
+//         }
+//       }
+//     }
+//   }
+// `;
 
 export const REMOVE_EVENT = gql `
   mutation RemoveEvent($eventId: ID!) {

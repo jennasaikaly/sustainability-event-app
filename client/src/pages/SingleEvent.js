@@ -34,7 +34,7 @@ const SingleEvent = props => {
           <p>{event.description}</p>
           <p>{event.keywords}</p>
           <p>{event.location}</p>
-          <img alt="" src={require('../assets/img/' + event.image)}/>
+          {/* <img alt="" src={require('../assets/img/' + event.image)}/> */}
           <p>{event.eventFees}</p>
           <p>{event.contactInfo}</p>
           <p>{event.additionalInfo}</p>
