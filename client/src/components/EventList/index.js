@@ -51,31 +51,38 @@ return (
     {events &&
       events.map(event => (
         <div key={event._id} className="card">
-          <p className="card-header">
-            <Link
+          <div className="card-header">
+            <p><Link
               to={`/event/${event._id}`}
               style={{ fontWeight: 700 }}
               className="text-light"
-            >{event.eventTitle} </Link>{' '}
-            {event.date} at {event.eventTiming}
-            Organized by 
-                  <Link
-                    to={`/profile/${event.username}`}
-                    style={{ fontWeight: 700 }}
-                    className="text-light"
-                  >
-                    { event.username }
-                  </Link>{ ' ' }
+            >{event.eventTitle} </Link></p>
+            <p>{event.eventDate} at {event.eventTime} </p>
+            
 
-          </p>
+          </div>
           <div className="card-body">
           {/* <img alt="" src={pollinator} /> */}
           <img alt="" src={event.image} />
             <p className="mb-0">
-              {event.keywords}
-              Comments: {event.commentCount}
-              People Attending: {event.attendanceCount}
-            </p>
+              {event.keywords} </p>
+              <p className='organizedby'>
+                  <Link
+                    to={`/profile/${event.username}`}
+                    style={{ fontWeight: 700 }}
+                    className="text-light"
+                  >   {'    '}   
+                    { event.username }
+                  </Link></p>
+                  <Link to={`/event/${event._id}`}>
+                
+                <p className="mb-0">
+                <i class="fa-solid fa-comment"></i> {event.commentCount} || Click to{' '}
+                  {event.commentCount ? 'see' : 'start'} the discussion!
+                </p>
+              </Link>
+
+           
           </div>
         </div>
       ))}
