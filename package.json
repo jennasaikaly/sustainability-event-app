@@ -24,7 +24,6 @@
   "bugs": {
     "url": "https://github.com/jennasaikaly/sustainability-event-app/issues"
   },
-  "homepage": "https://github.com/jennasaikaly/sustainability-event-app#readme",
   "devDependencies": {
     "concurrently": "^5.1.0",
     "gh-pages": "^4.0.0"
