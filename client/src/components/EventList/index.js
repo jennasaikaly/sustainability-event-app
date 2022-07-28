@@ -63,26 +63,30 @@ return (
           </div>
           <div className="card-body">
           {/* <img alt="" src={pollinator} /> */}
-          <img alt="" src={event.image} />
-            <p className="mb-0">
+          <img alt="" src={require('../../assets/img/' + event.image)}/>
+            <p className="card-keywords">
               {event.keywords} </p>
-              <p className='organizedby'>
+              
+                  
+
+           
+          </div>
+          <div className='card-footer'>
+          <span className='organizedby'> Event by:
                   <Link
                     to={`/profile/${event.username}`}
                     style={{ fontWeight: 700 }}
                     className="text-light"
                   >   {'    '}   
                     { event.username }
-                  </Link></p>
-                  <Link to={`/event/${event._id}`}>
+                  </Link></span>
+          <Link to={`/event/${event._id}`}>
                 
                 <p className="mb-0">
-                <i class="fa-solid fa-comment"></i> {event.commentCount} || Click to{' '}
-                  {event.commentCount ? 'see' : 'start'} the discussion!
+                <i className="fa-solid fa-comment"></i>  {' '}
+                  {event.commentCount ? 'comments' : 'Comment'} 
                 </p>
               </Link>
-
-           
           </div>
         </div>
       ))}
