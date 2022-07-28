@@ -17,7 +17,7 @@ const CommentForm = ({ eventId }) => {
 
     try {
       const { data } = await addComment({
-        variables: { eventId, formState},
+        variables: { eventId, ...formState},
       });
 
       setFormState({
