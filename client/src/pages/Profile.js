@@ -35,7 +35,7 @@ if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
   // }
 
   return (
-    <div>
+    <div className='profile-container'>
       <div className="flex-row mb-3">
       <h2 className="bg-dark text-secondary p-3 display-inline-block">
   Viewing {userParam ? `${user.username}'s` : 'your'} Events.
@@ -47,13 +47,13 @@ if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
           <EventList events={user.events} title={`${user.username}'s Events...`} />
         </div>
 
-        <div className="col-12 col-lg-3 mb-3">
+        {/* <div className="col-12 col-lg-3 mb-3">
           <CommentList
             username={user.username}
             CommentCount={user.CommentCount}
             Comments={user.Comments}
           />
-        </div>
+        </div> */}
       </div>
 
       <div>{!userParam && <EventForm />}</div>
