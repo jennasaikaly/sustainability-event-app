@@ -43,7 +43,7 @@ const SingleEvent = props => {
           <p><span className='eventtitle'>Description:{' '}</span> {event.description}</p>
           <p><span className='eventtitle'>Keywords:{' '}</span>{event.keywords}</p>
           <p><span className='eventtitle'>Location:{' '}</span>{event.location}</p>
-          <img alt="" src={require('../assets/img/' + event.image)}></img>
+//           <img alt="" src={require('../assets/img/' + event.image)}></img>
           <p><span className='eventtitle'>Fees:{' '}</span>{event.eventFees}</p>
           <p><span className='eventtitle'>Contact Info:{' '}</span>{event.contactInfo}</p>
           <p><span className='eventtitle'>Additional Info:{' '}</span>{event.additionalInfo}</p>
