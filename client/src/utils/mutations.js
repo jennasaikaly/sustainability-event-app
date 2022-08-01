@@ -72,41 +72,41 @@ export const ADD_EVENT = gql `
     }
 `;
 
-export const SAVE_EVENT = gql `
-  mutation saveEvent($input : savedEvent!) {
-    saveEvent (input: $input) {
-      _id
-      username
-      email
-      eventCount
-      savedEvent {
-        _id
-        eventId
-        username
-        eventTitle
-        organizers
-        description
-        keywords
-        location
-        image
-        eventTime
-        eventDate
-        eventFees
-        contactInfo
-        additionalInfo    
-        link
-        createdAt
-        commentCount
-        comments {
-          _id
-          createdAt
-          username
-          commentText
-        }
-      }
-    }
-  }
-`;
+// export const SAVE_EVENT = gql `
+//   mutation saveEvent($input : savedEvent!) {
+//     saveEvent (input: $input) {
+//       _id
+//       username
+//       email
+//       eventCount
+//       savedEvent {
+//         _id
+//         eventId
+//         username
+//         eventTitle
+//         organizers
+//         description
+//         keywords
+//         location
+//         image
+//         eventTime
+//         eventDate
+//         eventFees
+//         contactInfo
+//         additionalInfo    
+//         link
+//         createdAt
+//         commentCount
+//         comments {
+//           _id
+//           createdAt
+//           username
+//           commentText
+//         }
+//       }
+//     }
+//   }
+// `;
 
 export const REMOVE_EVENT = gql `
   mutation RemoveEvent($eventId: ID!) {
@@ -174,8 +174,22 @@ export const REMOVE_SAVEDEVENT = gql `
 `
 
 export const ADD_COMMENT = gql `
-  mutation AddComment($eventId: ID!, $commentText: String!, $username: String!) {
+  mutation addComment($eventId: ID!, $commentText: String!, $username: String!) {
     addComment(eventId: $eventId, commentText: $commentText, username: $username) {
+      _id
+      eventTitle
+      organizers
+      username
+      description
+      keywords
+      location
+      eventTime
+      eventDate
+      eventFees
+      contactInfo
+      additionalInfo
+      link
+      image
       comments {
         _id
         commentText
@@ -188,7 +202,7 @@ export const ADD_COMMENT = gql `
 `;
 
 export const REMOVE_COMMENT = gql `
-  mutation RemoveComment($eventId: ID!, $commentId: ID!) {
+  mutation removeComment($eventId: ID!, $commentId: ID!) {
     removeComment(eventId: $eventId, commentId: $commentId) {
       comments {
         _id

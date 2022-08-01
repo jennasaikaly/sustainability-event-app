@@ -4,12 +4,12 @@ const { AuthenticationError } = require('apollo-server-express');
 
 const resolvers = {
     Query: {
-      me: async (parent, args, context) => {
+      me: async (parent, {username}, context) => {
         if (context.user) {
-          const userData = await User.findOne({ _id: context.user._id })
+          const userData = await User.findOne({ username: context.user.username })
             .select('-__v -password')
-            .populate('events');
-            // .populate('comments');
+            .populate('events')
+            .populate('comments');
   
           return userData;
         }
@@ -17,11 +17,31 @@ const resolvers = {
         throw new AuthenticationError('Not logged in');
       },
       users: async () => {
-        return User.find().populate('events');
+        return User.find()
+        .select('-__v -password')
+        .populate('events');
       },
-      user: async (parent, { username }) => {
-        return User.findOne({ username }).populate('events');
-      },
+      // user: async (parent, args, context) => {
+      //   if (context.user){
+      //   let foundUser = await User.findOne({ username: context.user.username})
+      //   .select('-__v -password')
+      //   .populate('events');
+      //   console.log(foundUser);
+      //   return foundUser; 
+      // }
+      // }, 
+      user: async (parent, {username}) => {
+        let foundUser = await User.findOne({ username: username })
+        .select('-__v -password')
+        .populate('events');
+        console.log(foundUser);
+        return foundUser; 
+      }, 
+      // user: async (parent, { username }) => {
+      //   return User.findOne({ username })
+      //   .select('-__v -password')
+      //   .populate('events');
+      // },
       events: async (parent, { username }) => {
         const params = username ? { username } : {};
         return Event.find(params).sort({ createdAt: -1 });
@@ -63,55 +83,42 @@ const resolvers = {
         // Return an `Auth` object that consists of the signed token and user's information
         return { token, user };
       },
-      addEvent: async (parent, {
-          eventTitle, 
-          organizers, 
-          username, 
-          description, 
-          keywords,
-          location, 
-          eventTime, 
-          eventDate, 
-          eventFees, 
-          contactInfo, 
-          additionalInfo, 
-          link, 
-          image
-        }) => {
+      addEvent: async (parent, args
+        , context) => {
+        if (context.user){
         const event = await Event.create({
-          eventTitle, 
-          organizers, 
-          username, 
-          description, 
-          keywords,
-          location, 
-          eventTime, 
-          eventDate, 
-          eventFees, 
-          contactInfo, 
-          additionalInfo, 
-          link, 
-          image
+          ...args, username: context.user.username,
         });
-  
-        await User.findOneAndUpdate(
-          { username: username },
-          { $addToSet: { events: Event._id } }
+
+        await User.findByIdAndUpdate(
+          { _id :context.user._id },
+          { $addToSet: { events: event._id } }, 
+          {new: true}
         );
   
         return event;
+      }
+  
+        
+
+        throw new AuthenticationError('You need to be logged in!');
       },
-      addComment: async (parent, { eventId, commentText, username }) => {
-        return Event.findOneAndUpdate(
-          { _id: eventId },
-          {
-            $addToSet: { comments: { commentText, username} }
-          },
-          {
-            new: true,
-            runValidators: true
-          }
-        );
+      addComment: async (parent, { eventId, commentText}, context) => {
+        if (context.user) {
+          let updatedEvent = await Event.findOneAndUpdate(
+            { _id: eventId },
+            {
+              $push: { comments: { commentText, username: context.user.username} }
+            },
+            {
+              new: true,
+              runValidators: true
+            }
+          );
+          return updatedEvent;
+        }
+       
+        throw new AuthenticationError('You need to be logged in!');
       },
       removeEvent: async (parent, { eventId }) => {
         return Event.findOneAndDelete({ _id: eventId });
@@ -122,7 +129,25 @@ const resolvers = {
           { $pull: { comments: { _id: commentId } } },
           { new: true }
         );
-      }
+      },
+      //saved events 
+      
+
+
+
+    removeEvent: async (parent, args, context) => {
+        if(context.user) {
+        const updatedUser = await User.findOneAndUpdate(
+            { _id: context.user._id },
+            { $pull: { savedEvents: { eventId: args.eventId } } },
+            { new: true }
+        );
+
+        return updatedUser;
+        }
+
+        throw new AuthenticationError('You need to be logged in!');
+    }
     }
   };
   

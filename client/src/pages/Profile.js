@@ -3,6 +3,7 @@ import { Navigate, useParams } from 'react-router-dom';
 
 import EventList from '../components/EventList';
 import CommentList from '../components/CommentList';
+import EventForm from '../components/EventForm';
 import { useQuery } from '@apollo/client';
 import { QUERY_USER, QUERY_ME } from '../utils/queries';
 import Auth from '../utils/auth';
@@ -34,7 +35,7 @@ if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
   // }
 
   return (
-    <div>
+    <div className='profile-container'>
       <div className="flex-row mb-3">
       <h2 className="bg-dark text-secondary p-3 display-inline-block">
   Viewing {userParam ? `${user.username}'s` : 'your'} Events.
@@ -43,17 +44,19 @@ if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
 
       <div className="flex-row justify-space-between mb-3">
         <div className="col-12 mb-3 col-lg-8">
-          <EventList Events={user.Events} title={`${user.username}'s Events...`} />
+          <EventList events={user.events} title={`${user.username}'s Events...`} />
         </div>
 
-        <div className="col-12 col-lg-3 mb-3">
+        {/* <div className="col-12 col-lg-3 mb-3">
           <CommentList
             username={user.username}
             CommentCount={user.CommentCount}
             Comments={user.Comments}
           />
-        </div>
+        </div> */}
       </div>
+
+      <div>{!userParam && <EventForm />}</div>
     </div>
   );
 };
